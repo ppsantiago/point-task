@@ -1,4 +1,3 @@
-# React + TailwindCSS + NextUI
+# Point Task.
 
-- Clean template - DarkTheme
-- Montserrat Font
+Coming soon
