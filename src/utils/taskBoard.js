@@ -1,18 +1,22 @@
-export const boards = {
-  backlog: {
+export const boards = [
+  {
+    id: "backlog",
     columnName: "Backlog ⛈️",
     bg: "bg-red-500",
   },
-  todo: {
+  {
+    id: "todo",
     columnName: "To Do 🚀",
     bg: "bg-yellow-500",
   },
-  inProgress: {
+  {
+    id: "inProgress",
     columnName: "In Progress 🚀",
     bg: "bg-blue-500",
   },
-  done: {
+  {
+    id: "done",
     columnName: "Done 👍",
     bg: "bg-green-500",
   },
-};
+];

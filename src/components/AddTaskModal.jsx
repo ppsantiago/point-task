@@ -45,7 +45,7 @@ const AddTaskModal = (props) => {
                 Add task
               </ModalHeader>
               <ModalBody>
-                <FormTask addTodo={addTodo} />
+                <FormTask addTodo={addTodo} onClose={onClose} />
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>

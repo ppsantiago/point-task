@@ -1,11 +1,10 @@
-import { Input } from "@nextui-org/react";
-import { Textarea } from "@nextui-org/react";
-import { Button } from "@nextui-org/react";
+import { Input, Button, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 
-const FormTask = (prtops) => {
+const FormTask = (props) => {
   // Destructuring
-  const { addTodo } = prtops;
+  // eslint-disable-next-line react/prop-types
+  const { addTodo, onClose } = props;
   // States
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
@@ -27,7 +26,9 @@ const FormTask = (prtops) => {
           label="Description"
           placeholder="Enter Task description"
         />
-        <Button type="submit">Add</Button>
+        <Button type="submit" onPress={onClose}>
+          Add
+        </Button>
       </form>
     </>
   );
