@@ -1,6 +1,6 @@
 # Point Task.
 
-##Install
+## Install
 
 ```
 git clone https://github.com/ppsantiago/point-task
