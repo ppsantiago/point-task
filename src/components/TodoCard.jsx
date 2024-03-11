@@ -7,10 +7,13 @@ import {
   ButtonGroup,
 } from "@nextui-org/react";
 
-const TodoCard = (task) => {
-  const { title, description, id, status, handlerDelete, handlerUpdate } = task;
-  const statuses = ["backlog", "pending", "progress", "finish"];
+import { useTaskStore } from "../store/taskStore";
 
+const TodoCard = (task) => {
+  const { title, description, id, status } = task;
+  const statuses = ["backlog", "pending", "progress", "finish"];
+  const deleteTask = useTaskStore((state) => state.deleteTask);
+  const changeColumnTask = useTaskStore((state) => state.changeColumnTask);
   return (
     <article
       className={
@@ -31,7 +34,7 @@ const TodoCard = (task) => {
           <DropdownMenu aria-label="Static Actions">
             {statuses.map((s) =>
               status === s ? null : (
-                <DropdownItem onClick={() => handlerUpdate(id, s)} key={s}>
+                <DropdownItem onClick={() => changeColumnTask(id, s)} key={s}>
                   {s}
                 </DropdownItem>
               )
@@ -42,7 +45,7 @@ const TodoCard = (task) => {
           <Button size="sm" onClick={() => console.log("editin")}>
             Edit
           </Button>
-          <Button size="sm" onClick={() => handlerDelete(id)} color="danger">
+          <Button size="sm" onClick={() => deleteTask(id)} color="danger">
             Delete
           </Button>
         </ButtonGroup>

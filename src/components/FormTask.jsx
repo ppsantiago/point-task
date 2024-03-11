@@ -1,18 +1,21 @@
 import { Input, Button, Textarea } from "@nextui-org/react";
 import { useState } from "react";
-
+import { useTaskStore } from "../store/taskStore";
 const FormTask = (props) => {
   // Destructuring
   // eslint-disable-next-line react/prop-types
-  const { addTodo, onClose } = props;
+  const { onClose } = props;
+  const addTask = useTaskStore((state) => state.addTask);
+
   // States
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
   // Handlers
   const handlerSubmit = (e) => {
     e.preventDefault();
-    addTodo(title, description);
+    addTask({ title, description });
   };
+
   return (
     <>
       <form onSubmit={handlerSubmit} className="flex flex-col gap-4">

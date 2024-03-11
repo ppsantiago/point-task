@@ -1,52 +1,22 @@
-import { useEffect, useState } from "react";
-import {
-  loadDataStorage,
-  saveDataStorage,
-  deleteDataStorageItem,
-  updateDataStorageItem,
-} from "../utils/storageManager";
 import FromTask from "./FormTask";
 import { Accordion, AccordionItem } from "@nextui-org/react";
-
+import { useTaskStore } from "../store/taskStore";
 // Import components
 import TodoCard from "./TodoCard";
 import AddTaskModal from "./AddTaskModal";
+//
 
 const TodoBoard = () => {
-  const [dataStorage, setDataStorage] = useState([]);
-  // Task statuses
-  const addTodo = (title, description) => {
-    // console.log(title, description);
-    const newTodo = {
-      id: Date.now(),
-      title: title,
-      description: description,
-      status: "backlog",
-    };
-    saveDataStorage([...dataStorage, newTodo]);
-    setDataStorage(loadDataStorage());
-  };
-
-  const handlerDelete = (id) => {
-    deleteDataStorageItem(id);
-    setDataStorage(loadDataStorage());
-  };
-
-  const handlerUpdate = (id, status) => {
-    setDataStorage(updateDataStorageItem(id, status));
-  };
-  useEffect(() => {
-    setDataStorage(loadDataStorage());
-  }, []);
+  const Tasks = useTaskStore((state) => state.tasks);
 
   return (
     <section className="flex flex-col md:flex-row justify-center items-start w-screen px-6 md:pl-32 md:pr-10 md:pt-10 gap-4">
       <div className=" hidden md:block md:absolute md:pt-0 md:top-10 left-2">
-        <AddTaskModal addTodo={addTodo} />
+        <AddTaskModal />
       </div>
       <Accordion className="block md:hidden">
         <AccordionItem key="1" aria-label="Add Task" title="Accordion 1">
-          <FromTask addTodo={addTodo} />
+          <FromTask />
         </AccordionItem>
       </Accordion>
       <div
@@ -58,21 +28,20 @@ const TodoBoard = () => {
             Brain Strom ⛈️
           </h1>
         </div>
-        {dataStorage.map(
-          (todo) =>
-            todo.status === "backlog" && (
-              <div className="p-2" key={todo.id}>
-                <TodoCard
-                  title={todo.title}
-                  description={todo.description}
-                  id={todo.id}
-                  status={todo.status}
-                  handlerDelete={handlerDelete}
-                  handlerUpdate={handlerUpdate}
-                />
-              </div>
-            )
-        )}
+        {Tasks &&
+          Tasks.map(
+            (todo) =>
+              todo.status === "backlog" && (
+                <div className="p-2" key={todo.id}>
+                  <TodoCard
+                    title={todo.title}
+                    description={todo.description}
+                    id={todo.id}
+                    status={todo.status}
+                  />
+                </div>
+              )
+          )}
       </div>
       <div
         id="pending"
@@ -81,21 +50,20 @@ const TodoBoard = () => {
         <div className="bg-orange-400 text-center rounded-t-md shadow-lg">
           <h1 className="text-xl font-bold text-black px-2 py-4">Pending ⭕</h1>
         </div>
-        {dataStorage.map(
-          (todo) =>
-            todo.status === "pending" && (
-              <div className="p-2" key={todo.id}>
-                <TodoCard
-                  title={todo.title}
-                  description={todo.description}
-                  id={todo.id}
-                  status={todo.status}
-                  handlerDelete={handlerDelete}
-                  handlerUpdate={handlerUpdate}
-                />
-              </div>
-            )
-        )}
+        {Tasks &&
+          Tasks.map(
+            (todo) =>
+              todo.status === "pending" && (
+                <div className="p-2" key={todo.id}>
+                  <TodoCard
+                    title={todo.title}
+                    description={todo.description}
+                    id={todo.id}
+                    status={todo.status}
+                  />
+                </div>
+              )
+          )}
       </div>
       <div
         id="progress"
@@ -106,21 +74,20 @@ const TodoBoard = () => {
             Progress 🚧
           </h1>
         </div>
-        {dataStorage.map(
-          (todo) =>
-            todo.status === "progress" && (
-              <div className="p-2" key={todo.id}>
-                <TodoCard
-                  title={todo.title}
-                  description={todo.description}
-                  id={todo.id}
-                  status={todo.status}
-                  handlerDelete={handlerDelete}
-                  handlerUpdate={handlerUpdate}
-                />
-              </div>
-            )
-        )}
+        {Tasks &&
+          Tasks.map(
+            (todo) =>
+              todo.status === "progress" && (
+                <div className="p-2" key={todo.id}>
+                  <TodoCard
+                    title={todo.title}
+                    description={todo.description}
+                    id={todo.id}
+                    status={todo.status}
+                  />
+                </div>
+              )
+          )}
       </div>
       <div
         id="finish"
@@ -129,21 +96,20 @@ const TodoBoard = () => {
         <div className="bg-green-300 text-center rounded-t-md shadow-lg">
           <h1 className="text-xl font-bold text-black px-2 py-4">Finish 👍</h1>
         </div>
-        {dataStorage.map(
-          (todo) =>
-            todo.status === "finish" && (
-              <div className="p-2" key={todo.id}>
-                <TodoCard
-                  title={todo.title}
-                  description={todo.description}
-                  id={todo.id}
-                  status={todo.status}
-                  handlerDelete={handlerDelete}
-                  handlerUpdate={handlerUpdate}
-                />
-              </div>
-            )
-        )}
+        {Tasks &&
+          Tasks.map(
+            (todo) =>
+              todo.status === "finish" && (
+                <div className="p-2" key={todo.id}>
+                  <TodoCard
+                    title={todo.title}
+                    description={todo.description}
+                    id={todo.id}
+                    status={todo.status}
+                  />
+                </div>
+              )
+          )}
       </div>
     </section>
   );
