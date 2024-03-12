@@ -6,14 +6,32 @@ const FormTask = (props) => {
   // eslint-disable-next-line react/prop-types
   const { onClose } = props;
   const addTask = useTaskStore((state) => state.addTask);
+  const [blackTask, setBlackTask] = useState({
+    title: "",
+    description: "",
+    status: "backlog",
+    dateEnd: [],
+    subTasks: [
+      {
+        title: "",
+        description: "",
+        status: "backlog",
+        dateEnd: [],
+        subTasks: [],
+      },
+    ],
+  });
 
   // States
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
   // Handlers
   const handlerSubmit = (e) => {
+    blackTask.title = title;
+    blackTask.description = description;
+    // console.log(blackTask);
     e.preventDefault();
-    addTask({ title, description });
+    addTask(blackTask);
   };
 
   return (
