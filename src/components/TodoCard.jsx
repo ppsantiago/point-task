@@ -6,12 +6,13 @@ import {
   Button,
   ButtonGroup,
 } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 import { useTaskStore } from "../store/taskStore";
 
 const TodoCard = (task) => {
   const { title, description, id, status } = task;
-  const statuses = ["backlog", "pending", "progress", "finish"];
+  const statuses = useTaskStore((state) => state.statuses);
   const deleteTask = useTaskStore((state) => state.deleteTask);
   const changeColumnTask = useTaskStore((state) => state.changeColumnTask);
   return (
@@ -21,7 +22,9 @@ const TodoCard = (task) => {
       }
     >
       <div className="flex justify-center items-center">
-        <h1 className="text-xl font-bold">{title}</h1>
+        <Link to={`/task/${id}`} className="text-xl font-bold">
+          {title}
+        </Link>
       </div>
       <div className="p-4">
         <p className="text-pretty">{description}</p>
