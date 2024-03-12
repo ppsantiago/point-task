@@ -1,6 +1,10 @@
 # Point Task
 
+<<<<<<< HEAD
 ## Instalación
+=======
+## Install
+>>>>>>> 8b1913327e7750bcaae81e8d5379ac7cd62a52ac
 
 ```bash
 git clone https://github.com/ppsantiago/point-task
