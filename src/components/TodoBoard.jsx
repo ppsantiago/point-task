@@ -8,7 +8,6 @@ import AddTaskModal from "./AddTaskModal";
 
 const TodoBoard = () => {
   const Tasks = useTaskStore((state) => state.tasks);
-
   return (
     <section className="flex flex-col md:flex-row justify-center items-start w-screen px-6 md:pl-32 md:pr-10 md:pt-10 gap-4">
       <div className=" hidden md:block md:absolute md:pt-0 md:top-10 left-2">
@@ -23,7 +22,7 @@ const TodoBoard = () => {
         id="backlog"
         className={`shadown-lg bg-gradient-to-b from-gray-700 to-gray-900 rounded-md md:min-h-[80vh] w-full `}
       >
-        <div className="bg-red-400 text-center rounded-t-md shadow-lg">
+        <div className="bg-red-300 text-center rounded-t-md shadow-lg">
           <h1 className="text-xl font-bold text-black px-2 py-4">
             Brain Strom ⛈️
           </h1>
@@ -47,7 +46,7 @@ const TodoBoard = () => {
         id="pending"
         className={`shadown-lg bg-gradient-to-b from-gray-700 to-gray-900 rounded-md md:min-h-[80vh] w-full `}
       >
-        <div className="bg-orange-400 text-center rounded-t-md shadow-lg">
+        <div className="bg-orange-300 text-center rounded-t-md shadow-lg">
           <h1 className="text-xl font-bold text-black px-2 py-4">Pending ⭕</h1>
         </div>
         {Tasks &&
