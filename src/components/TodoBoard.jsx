@@ -1,23 +1,18 @@
-import FromTask from "./FormTask";
-import { Accordion, AccordionItem } from "@nextui-org/react";
 import { useTaskStore } from "../store/taskStore";
 // Import components
 import TodoCard from "./TodoCard";
 import AddTaskModal from "./AddTaskModal";
-//
 
 const TodoBoard = () => {
   const Tasks = useTaskStore((state) => state.tasks);
   return (
     <section className="flex flex-col md:flex-row justify-center items-start w-screen px-6 md:pl-32 md:pr-10 md:pt-10 gap-4">
       <div className=" hidden md:block md:absolute md:pt-0 md:top-10 left-2">
-        <AddTaskModal />
+        <div className="flex flex-col gap-5">
+          <AddTaskModal usage="task" />
+          <AddTaskModal title="Add Task whit IA" />
+        </div>
       </div>
-      <Accordion className="block md:hidden">
-        <AccordionItem key="1" aria-label="Add Task" title="Accordion 1">
-          <FromTask />
-        </AccordionItem>
-      </Accordion>
       <div
         id="backlog"
         className={`shadown-lg bg-gradient-to-b from-gray-700 to-gray-900 rounded-md md:min-h-[80vh] w-full `}
