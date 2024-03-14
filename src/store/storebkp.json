@@ -1,0 +1,442 @@
+{
+  "state": {
+    "tasks": [
+      {
+        "title": "Crear un sitio web",
+        "description": "Crear un sitio web completo desde cero, incluyendo diseño, desarrollo y publicación.",
+        "status": "backlog",
+        "dateEnd": [["2024-04-13T00:00:00.000Z", "Fecha límite estimada ⌛"]],
+        "subTasks": [
+          {
+            "title": "Planificación y diseño",
+            "description": "Definir los objetivos del sitio web, crear un wireframe y mockups.",
+            "status": "backlog",
+            "dateEnd": [
+              ["2024-03-20T00:00:00.000Z", "Fecha límite estimada ⌛"]
+            ],
+            "comments": []
+          },
+          {
+            "title": "Desarrollo del front-end",
+            "description": "Implementar el diseño utilizando HTML, CSS y JavaScript.",
+            "status": "backlog",
+            "dateEnd": [
+              ["2024-04-03T00:00:00.000Z", "Fecha límite estimada ⌛"]
+            ],
+            "comments": []
+          },
+          {
+            "title": "Desarrollo del back-end",
+            "description": "Implementar la lógica del sitio web utilizando un framework o lenguaje de programación.",
+            "status": "backlog",
+            "dateEnd": [
+              ["2024-04-10T00:00:00.000Z", "Fecha límite estimada ⌛"]
+            ],
+            "comments": []
+          },
+          {
+            "title": "Publicación y pruebas",
+            "description": "Publicar el sitio web en un servidor y realizar pruebas de funcionamiento.",
+            "status": "backlog",
+            "dateEnd": [
+              ["2024-04-12T00:00:00.000Z", "Fecha límite estimada ⌛"]
+            ],
+            "comments": []
+          }
+        ],
+        "comments": [],
+
+        "id": "3dcdf3e3-de7b-4e6e-881f-11f527d55584"
+      },
+      {
+        "title": "Tarea 1 🥳",
+        "description": "1113123123111111111",
+        "status": "finish",
+        "dateEnd": [
+          ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+          ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"],
+          ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+          ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"],
+          ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+          ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+        ],
+        "subTasks": [
+          {
+            "title": "Hacer commit 🧠",
+            "description": "Describir lo avanzado",
+            "status": "backlog",
+            "dateEnd": [
+              ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+              ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+            ],
+            "comments": [
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "Otro comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un mas comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "este es otro comentario"
+              }
+            ]
+          },
+          {
+            "title": "Limpiar codigo 🧠",
+            "description": "Revisar y refactorizar funciones, agregar manejo de formularios y typscript",
+            "status": "pending",
+            "dateEnd": [
+              ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+              ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+            ],
+            "comments": [
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "Otro comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un mas comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "este es otro comentario"
+              }
+            ]
+          },
+          {
+            "title": "sub Tarea 2 🧠",
+            "description": "Descripción de la tarea 1",
+            "status": "progress",
+            "dateEnd": [
+              ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+              ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+            ],
+            "comments": [
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "Otro comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un mas comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "este es otro comentario"
+              }
+            ]
+          },
+          {
+            "title": "Instalar WP 🧠",
+            "description": "Crear un plugin para WP y agregarlo al tema",
+            "status": "finish",
+            "dateEnd": [
+              ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+              ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+            ],
+            "comments": [
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "Otro comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un mas comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "este es otro comentario"
+              }
+            ]
+          }
+        ],
+        "comments": [
+          { "date": "2021-01-01T00:00:00.000Z", "comment": "un comentario" },
+          { "date": "2021-01-01T00:00:00.000Z", "comment": "Otro comentario" },
+          {
+            "date": "2021-01-01T00:00:00.000Z",
+            "comment": "un mas comentario"
+          },
+          {
+            "date": "2021-01-01T00:00:00.000Z",
+            "comment": "este es otro comentario"
+          }
+        ],
+        "id": "3dcdf3e3-de7b-4e6e-881f-44f527d55584"
+      },
+      {
+        "title": "Tarea 2 🧠",
+        "description": "Descripción de la tarea 1 2",
+        "status": "backlog",
+        "dateEnd": [
+          ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+          ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"],
+          ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+          ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"],
+          ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+          ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+        ],
+        "subTasks": [
+          {
+            "title": "sub Tarea 2 🧠",
+            "description": "Descripción de la tarea 1",
+            "status": "backlog",
+            "dateEnd": [
+              ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+              ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+            ],
+            "comments": [
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "Otro comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un mas comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "este es otro comentario"
+              }
+            ]
+          },
+          {
+            "title": "sub Tarea 2 🧠",
+            "description": "Descripción de la tarea 1",
+            "status": "backlog",
+            "dateEnd": [
+              ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+              ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+            ],
+            "comments": [
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "Otro comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un mas comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "este es otro comentario"
+              }
+            ]
+          },
+          {
+            "title": "sub Tarea 2 🧠",
+            "description": "Descripción de la tarea 1",
+            "status": "backlog",
+            "dateEnd": [
+              ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+              ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+            ],
+            "comments": [
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "Otro comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "un mas comentario"
+              },
+              {
+                "date": "2021-01-01T00:00:00.000Z",
+                "comment": "este es otro comentario"
+              }
+            ]
+          }
+        ],
+        "comments": [
+          { "date": "2021-01-01T00:00:00.000Z", "comment": "un comentario" },
+          { "date": "2021-01-01T00:00:00.000Z", "comment": "Otro comentario" },
+          {
+            "date": "2021-01-01T00:00:00.000Z",
+            "comment": "un mas comentario"
+          },
+          {
+            "date": "2021-01-01T00:00:00.000Z",
+            "comment": "este es otro comentario"
+          }
+        ],
+        "id": "3dcdf3e3-de7b-4e6e-881f-43f527d55584"
+      },
+      {
+        "title": "1231",
+        "description": "Hola manola",
+        "status": "backlog",
+        "dateEnd": [],
+        "subTasks": [],
+        "comments": [],
+        "id": "64cb7149-f023-4671-9da7-8a1e028ba52f"
+      }
+    ],
+    "task": {
+      "title": "Tarea 2 🔥",
+      "description": "Descripción de la tarea 1 2",
+      "status": "finish",
+      "dateEnd": [
+        ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+        ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"],
+        ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+        ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"],
+        ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+        ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+      ],
+      "subTasks": [
+        {
+          "title": "sub Tarea 2 🧠",
+          "description": "Descripción de la tarea 1",
+          "status": "pending",
+          "dateEnd": [
+            ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+            ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+          ],
+          "comments": [
+            { "date": "2021-01-01T00:00:00.000Z", "comment": "un comentario" },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "Otro comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "un mas comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "este es otro comentario"
+            }
+          ]
+        },
+        {
+          "title": "sub Tarea 2 🧠",
+          "description": "Descripción de la tarea 1",
+          "status": "backlog",
+          "dateEnd": [
+            ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+            ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+          ],
+          "comments": [
+            { "date": "2021-01-01T00:00:00.000Z", "comment": "un comentario" },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "Otro comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "un mas comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "este es otro comentario"
+            }
+          ]
+        },
+        {
+          "title": "sub Tarea 2 🧠",
+          "description": "Descripción de la tarea 1",
+          "status": "progress",
+          "dateEnd": [
+            ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+            ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+          ],
+          "comments": [
+            { "date": "2021-01-01T00:00:00.000Z", "comment": "un comentario" },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "Otro comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "un mas comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "este es otro comentario"
+            }
+          ]
+        },
+        {
+          "title": "sub Tarea 2 🧠",
+          "description": "Descripción de la tarea 1",
+          "status": "finish",
+          "dateEnd": [
+            ["2021-01-01T00:00:00.000Z", "primer plazo de entrega ⌛"],
+            ["2021-01-01T00:00:00.000Z", "segundo plazo de entrega ⭕"]
+          ],
+          "comments": [
+            { "date": "2021-01-01T00:00:00.000Z", "comment": "un comentario" },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "Otro comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "un mas comentario"
+            },
+            {
+              "date": "2021-01-01T00:00:00.000Z",
+              "comment": "este es otro comentario"
+            }
+          ]
+        }
+      ],
+      "comments": [
+        { "date": "2021-01-01T00:00:00.000Z", "comment": "un comentario" },
+        { "date": "2021-01-01T00:00:00.000Z", "comment": "Otro comentario" },
+        { "date": "2021-01-01T00:00:00.000Z", "comment": "un mas comentario" },
+        {
+          "date": "2021-01-01T00:00:00.000Z",
+          "comment": "este es otro comentario"
+        }
+      ],
+      "id": "3dcdf3e3-de7b-4e6e-881f-43f527d55584"
+    },
+    "statuses": ["backlog", "pending", "progress", "finish"],
+    "statusIcons": {
+      "backlog": "⛈️",
+      "pending": "⭕",
+      "progress": "🚧",
+      "finish": "👍"
+    },
+    "statusColor": {
+      "backlog": "bg-red-300",
+      "pending": "bg-orange-300",
+      "progress": "bg-blue-300",
+      "finish": "bg-green-300"
+    }
+  },
+  "version": 0
+}

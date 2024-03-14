@@ -1,13 +1,13 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { v4 } from "uuid";
 
 export const useTaskStore = create(
   persist(
     //
     (set, get) => ({
+      // Tasks
       tasks: [],
-      task: [],
+      // Constantes
       statuses: ["backlog", "pending", "progress", "finish"],
       statusIcons: {
         backlog: "⛈️",
@@ -21,8 +21,9 @@ export const useTaskStore = create(
         progress: "bg-blue-300",
         finish: "bg-green-300",
       },
+      // Funciones
       addTask: (task) => {
-        const newTask = { ...task, status: "backlog", id: v4() };
+        const newTask = { ...task, status: "backlog" };
         set((state) => ({
           tasks: [...state.tasks, newTask],
         }));
@@ -33,29 +34,62 @@ export const useTaskStore = create(
         }));
       },
       changeColumnTask: (id, status) => {
-        console.log(id, status);
         set((state) => ({
           tasks: state.tasks.map((task) =>
             task.id === id ? { ...task, status: status } : task
           ),
         }));
       },
-      // Pendiente
-      exportTasks: () => {
-        const tasksJSON = JSON.stringify(get().tasks);
-        const blob = new Blob([tasksJSON], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "tasks.json";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      },
-      findOneTask: (id) => {
+      saveTask: (task) => {
         set((state) => ({
-          task: state.tasks.find((task) => task.id === id),
+          tasks: state.tasks.map((t) => (t.id === task.id ? task : t)),
+        }));
+      },
+      saveSubtask: (taskID, subtask) => {
+        console.log("subTask", subtask);
+        console.log("taskID", taskID);
+
+        const task = get().tasks.find((task) => task.id === taskID);
+        console.log(task);
+        set((state) => ({
+          tasks: state.tasks.map((t) =>
+            t.id === taskID ? { ...t, subTasks: [...t.subTasks, subtask] } : t
+          ),
+        }));
+      },
+      // Change status subtask
+      changeStatusSubtask: (taskID, subtaskID, subtasks, status) => {
+        set((state) => ({
+          tasks: state.tasks.map((task) => {
+            if (task.id === taskID) {
+              return {
+                ...task,
+                subTasks: task.subTasks.map((subtask) =>
+                  subtask.id === subtaskID
+                    ? { ...subtask, status: status }
+                    : subtask
+                ),
+              };
+            } else {
+              return task;
+            }
+          }),
+        }));
+      },
+      deleteSubtask: (taskID, subtaskID) => {
+        set((state) => ({
+          tasks: state.tasks.map((task) => {
+            if (task.id === taskID) {
+              return {
+                ...task,
+                subTasks: task.subTasks.filter(
+                  (subtask) => subtask.id !== subtaskID
+                ),
+              };
+            } else {
+              return task;
+            }
+          }),
         }));
       },
     }),

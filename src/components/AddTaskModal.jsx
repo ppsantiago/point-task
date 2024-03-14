@@ -12,7 +12,7 @@ import FormTask from "./FormTask";
 const AddTaskModal = (props) => {
   // Destructuring
   // eslint-disable-next-line react/prop-types
-  const { addTodo } = props;
+  const { title, usage } = props;
 
   //   States
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,11 +26,17 @@ const AddTaskModal = (props) => {
     <>
       <Button
         key="blur"
+        size="sm"
         color="secondary"
         onPress={() => handleOpen("blur")}
         className="capitalize"
       >
-        <p className="text-black font-medium">Add task</p>
+        {/* <p className="text-black font-medium">Add task</p> */}
+        {title ? (
+          <p className="font-semibold font-sm ">{title}</p>
+        ) : (
+          <p className="font-semibold font-sm">Add {usage} </p>
+        )}
       </Button>
       <Modal
         backdrop="blur"
@@ -45,7 +51,7 @@ const AddTaskModal = (props) => {
                 Add task
               </ModalHeader>
               <ModalBody>
-                <FormTask addTodo={addTodo} onClose={onClose} />
+                <FormTask onClose={onClose} usage={usage} />
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
