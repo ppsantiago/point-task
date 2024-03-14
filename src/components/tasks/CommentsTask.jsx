@@ -3,7 +3,6 @@ import { ScrollShadow, Button, Textarea } from "@nextui-org/react";
 import { v4 } from "uuid";
 const CommentsTask = () => {
   const task = useTaskStore((state) => state.task);
-  console.log(task.comments);
 
   return (
     <div className="flex flex-col w-[60%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between ">

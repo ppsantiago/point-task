@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
   ScrollShadow,
   Dropdown,
@@ -12,9 +11,13 @@ import { MdDateRange } from "react-icons/md";
 import { useTaskStore } from "../../store/taskStore";
 import { v4 } from "uuid";
 import AddTasksModal from "../AddTaskModal";
+import { useParams } from "react-router-dom";
 
 const SubTasks = () => {
-  const task = useTaskStore((state) => state.task);
+  // const task = useTaskStore((state) => state.task);
+  const { id } = useParams();
+  const tasks = useTaskStore((state) => state.tasks);
+  const task = tasks.find((task) => task.id === id);
   const deleteSubtask = useTaskStore((state) => state.deleteSubtask);
   const statuses = useTaskStore((state) => state.statuses);
   const statusColor = useTaskStore((state) => state.statusColor);
@@ -22,7 +25,7 @@ const SubTasks = () => {
     (state) => state.changeStatusSubtask
   );
   // task.subTasks.map((subtask) => console.log(subtask));
-  useEffect(() => {}, [task]);
+
   return (
     <div className="flex flex-col w-[60%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between ">
       <section className="bg-gray-700 w-full flex justify-between items-center px-4 py-2">

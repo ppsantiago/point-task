@@ -1,12 +1,15 @@
 import { Input, Button, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 import { useTaskStore } from "../store/taskStore";
+import { useParams } from "react-router-dom";
 import { v4 } from "uuid";
 const FormTask = (props) => {
   // Destructuring
   // eslint-disable-next-line react/prop-types
   const { onClose, usage } = props;
-  const task = useTaskStore((state) => state.task);
+  const { id } = useParams();
+  const tasks = useTaskStore((state) => state.tasks);
+  const task = tasks.find((task) => task.id === id);
   const addTask = useTaskStore((state) => state.addTask);
   const saveSubtask = useTaskStore((state) => state.saveSubtask);
   const [blankTask, setblankTask] = useState({

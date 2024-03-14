@@ -1,14 +1,10 @@
 import InfoTask from "./InfoTask";
 import SubTasks from "./SubTasks";
-import { useParams, Link } from "react-router-dom";
-import { useTaskStore } from "../../store/taskStore";
+import { Link } from "react-router-dom";
+
 import CommentsTask from "./CommentsTask";
 
 const Task = () => {
-  const { id } = useParams();
-  const findOneTask = useTaskStore((state) => state.findOneTask);
-  id && findOneTask(id);
-
   return (
     <div className="flex flex-col justify-start h-screen items-center pb-20">
       <section className="flex justify-start pl-2 items-center min-h-14 bg-gray-600 w-full">

@@ -4,10 +4,9 @@ import { persist } from "zustand/middleware";
 export const useTaskStore = create(
   persist(
     //
-    (set) => ({
+    (set, get) => ({
       // Tasks
       tasks: [],
-      task: [],
       // Constantes
       statuses: ["backlog", "pending", "progress", "finish"],
       statusIcons: {
@@ -24,8 +23,6 @@ export const useTaskStore = create(
       },
       // Funciones
       addTask: (task) => {
-        console.log("Add task", task);
-
         const newTask = { ...task, status: "backlog" };
         set((state) => ({
           tasks: [...state.tasks, newTask],
@@ -43,26 +40,21 @@ export const useTaskStore = create(
           ),
         }));
       },
-      findOneTask: (id) => {
-        set((state) => ({
-          task: state.tasks.find((task) => task.id === id),
-        }));
-      },
       saveTask: (task) => {
-        console.log("Save task", task);
-
         set((state) => ({
           tasks: state.tasks.map((t) => (t.id === task.id ? task : t)),
         }));
       },
       saveSubtask: (taskID, subtask) => {
+        console.log("subTask", subtask);
+        console.log("taskID", taskID);
+
+        const task = get().tasks.find((task) => task.id === taskID);
+        console.log(task);
         set((state) => ({
           tasks: state.tasks.map((t) =>
             t.id === taskID ? { ...t, subTasks: [...t.subTasks, subtask] } : t
           ),
-        }));
-        set((state) => ({
-          task: { ...state.task, subTasks: [...state.task.subTasks, subtask] },
         }));
       },
       // Change status subtask
@@ -83,9 +75,6 @@ export const useTaskStore = create(
             }
           }),
         }));
-        set((state) => ({
-          task: state.tasks.find((task) => task.id === taskID),
-        }));
       },
       deleteSubtask: (taskID, subtaskID) => {
         set((state) => ({
@@ -102,23 +91,7 @@ export const useTaskStore = create(
             }
           }),
         }));
-        set((state) => ({
-          task: state.tasks.find((task) => task.id === taskID),
-        }));
       },
-      // Pendiente
-      // exportTasks: () => {
-      //   const tasksJSON = JSON.stringify(get().tasks);
-      //   const blob = new Blob([tasksJSON], { type: "application/json" });
-      //   const url = URL.createObjectURL(blob);
-      //   const a = document.createElement("a");
-      //   a.href = url;
-      //   a.download = "tasks.json";
-      //   document.body.appendChild(a);
-      //   a.click();
-      //   document.body.removeChild(a);
-      //   URL.revokeObjectURL(url);
-      // },
     }),
     {
       name: "tasks-storage",

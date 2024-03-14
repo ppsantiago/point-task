@@ -9,11 +9,14 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const InfoTask = () => {
-  const task = useTaskStore((state) => state.task);
+  const { id } = useParams();
+  const tasks = useTaskStore((state) => state.tasks);
+  const task = tasks.find((task) => task.id === id);
   const statuses = useTaskStore((state) => state.statuses);
+  const statusColor = useTaskStore((state) => state.statusColor);
   const saveTask = useTaskStore((state) => state.saveTask);
   const deleteTask = useTaskStore((state) => state.deleteTask);
   const changeColumnTask = useTaskStore((state) => state.changeColumnTask);
@@ -25,17 +28,17 @@ const InfoTask = () => {
 
   return (
     <div className="flex flex-col w-[40%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between ">
-      <section className="bg-gray-700 w-full">
-        <h3 className="text-2xl font-semibold px-4 py-2">{task.title}</h3>
+      <section className={`${statusColor[task?.status]} w-full`}>
+        <h3 className="text-2xl text-black font-semibold px-4 py-2">
+          {task?.title}
+        </h3>
       </section>
       <section className="px-4  ">
         <Textarea
-          defaultValue={task.description}
+          defaultValue={task?.description}
           variant="underlined"
           label="Description"
-          // fullWidth
           labelPlacement="inside"
-          // disableAutosize
           minRows={40}
           isReadOnly={isReadOnly}
           onChange={(e) => (task.description = e.target.value)}
@@ -66,7 +69,9 @@ const InfoTask = () => {
               size="sm"
               color="success"
               className=" bg-green-500 text-white "
-              onClick={() => handlerSave()}
+              onClick={() => {
+                saveTask(task), setIsReadOnly(true);
+              }}
             >
               Save
             </Button>
