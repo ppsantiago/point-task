@@ -1,5 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import moment from "moment";
+
+import { v4 } from "uuid";
 
 export const useTaskStore = create(
   persist(
@@ -23,7 +26,12 @@ export const useTaskStore = create(
       },
       // Funciones
       addTask: (task) => {
-        const newTask = { ...task, status: "backlog" };
+        const newTask = {
+          ...task,
+          status: "backlog",
+          dateEnd: moment(task.dateEnd).add(1, "days"),
+        };
+
         set((state) => ({
           tasks: [...state.tasks, newTask],
         }));
@@ -45,12 +53,11 @@ export const useTaskStore = create(
           tasks: state.tasks.map((t) => (t.id === task.id ? task : t)),
         }));
       },
+      // ⭕ TODO: cambiar a addSubtask
       saveSubtask: (taskID, subtask) => {
-        console.log("subTask", subtask);
-        console.log("taskID", taskID);
-
         const task = get().tasks.find((task) => task.id === taskID);
         console.log(task);
+        subtask.dateEnd = moment(subtask.dateEnd).add(1, "days");
         set((state) => ({
           tasks: state.tasks.map((t) =>
             t.id === taskID ? { ...t, subTasks: [...t.subTasks, subtask] } : t
@@ -85,6 +92,28 @@ export const useTaskStore = create(
                 subTasks: task.subTasks.filter(
                   (subtask) => subtask.id !== subtaskID
                 ),
+              };
+            } else {
+              return task;
+            }
+          }),
+        }));
+      },
+      addComment: (taskID, comment) => {
+        console.log("taskID", taskID);
+        console.log("comment", comment);
+
+        const commentSave = {
+          id: v4(),
+          comment: comment,
+          date: new Date(),
+        };
+        set((state) => ({
+          tasks: state.tasks.map((task) => {
+            if (task.id === taskID) {
+              return {
+                ...task,
+                comments: [...task.comments, commentSave],
               };
             } else {
               return task;

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTaskStore } from "../../store/taskStore";
 import {
-  Textarea,
+  // Textarea,
   Button,
   ButtonGroup,
   Dropdown,
@@ -10,6 +10,7 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import { Link, useParams } from "react-router-dom";
+import "../../App.css";
 
 const InfoTask = () => {
   const { id } = useParams();
@@ -21,34 +22,53 @@ const InfoTask = () => {
   const deleteTask = useTaskStore((state) => state.deleteTask);
   const changeColumnTask = useTaskStore((state) => state.changeColumnTask);
   const [isReadOnly, setIsReadOnly] = useState(true);
-  const handlerSave = () => {
-    saveTask(task);
-    setIsReadOnly(true);
+
+  const taskDescription = () => {
+    return task?.description;
   };
 
+  useEffect(() => {
+    console.log("task");
+  }, []);
+
   return (
-    <div className="flex flex-col w-[40%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between ">
-      <section className={`${statusColor[task?.status]} w-full`}>
+    <div className="flex flex-col  w-[40%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between ">
+      <section
+        className={`${statusColor[task?.status]} w-full flex justify-between`}
+      >
         <h3 className="text-2xl text-black font-semibold px-4 py-2">
           {task?.title}
         </h3>
+        <h3 className="text-2xl text-black font-semibold px-4 py-2">
+          {new Date(task?.dateEnd).toLocaleDateString()}
+        </h3>
       </section>
-      <section className="px-4  ">
-        <Textarea
+      <section className="flex flex-col  h-full pb-4 pt-2 overflow-hidden">
+        <textarea
+          rows="10"
+          defaultValue={taskDescription}
+          disabled={isReadOnly}
+          onChange={(e) => (task.description = e.target.value)}
+          className="h-full px-4 py-2 rounded-b-xl focus:border-0"
+        />
+        {/* <Textarea
           defaultValue={task?.description}
-          variant="underlined"
+          // variant="underlined"
           label="Description"
           labelPlacement="inside"
-          minRows={40}
+          minRows={10}
           isReadOnly={isReadOnly}
           onChange={(e) => (task.description = e.target.value)}
-        />
+          className="h-full bg-red-400"
+        /> */}
       </section>
 
       <section className=" flex justify-between px-6 ">
         <Dropdown className="bg-black text-white" backdrop="blur">
           <DropdownTrigger>
-            <Button variant="bordered">{task.status}</Button>
+            <Button variant="bordered" className="mb-1" size="sm">
+              {task.status}
+            </Button>
           </DropdownTrigger>
           <DropdownMenu aria-label="Static Actions">
             {statuses.map((s) =>
@@ -63,7 +83,7 @@ const InfoTask = () => {
             )}
           </DropdownMenu>
         </Dropdown>
-        <ButtonGroup>
+        <ButtonGroup className="mb-1">
           {!isReadOnly ? (
             <Button
               size="sm"

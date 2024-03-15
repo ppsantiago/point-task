@@ -16,7 +16,7 @@ const FormTask = (props) => {
     title: "",
     description: "",
     status: "backlog",
-    dateEnd: "2024-03-20T00:00:00.000Z",
+    dateEnd: "",
     subTasks: [],
     comments: [],
     id: v4(),
@@ -25,6 +25,7 @@ const FormTask = (props) => {
   // Handlers
   const handlerSubmit = (e) => {
     e.preventDefault();
+
     usage === "task" ? addTask(blankTask) : saveSubtask(task.id, blankTask);
   };
 
@@ -44,6 +45,13 @@ const FormTask = (props) => {
           }
           label="Description"
           placeholder="Enter Task description"
+        />
+        <input
+          onChange={(e) => {
+            setblankTask({ ...blankTask, dateEnd: e.target.value });
+          }}
+          type="date"
+          className="rounded-lg px-4 h-14 bg-gray-200"
         />
         <Button type="submit" onPress={onClose}>
           Add

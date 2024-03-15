@@ -1,7 +1,6 @@
 import InfoTask from "./InfoTask";
 import SubTasks from "./SubTasks";
 import { Link } from "react-router-dom";
-
 import CommentsTask from "./CommentsTask";
 
 const Task = () => {

@@ -48,10 +48,12 @@ const SubTasks = () => {
               }`}
             ></div>
             <div className="w-[35vw] ">
-              <h3 className="font-semibold text-md">{subtask.title}</h3>
+              <h3 className="font-semibold text-md">
+                {subtask.title?.substring(0, 15)}
+              </h3>
             </div>
             <div className="w-full min-w-40 ">
-              <p className="text-sm">{subtask.description?.substring(0, 25)}</p>
+              <p className="text-sm">{subtask.description?.substring(0, 20)}</p>
             </div>
             <div className="w-full">
               <Dropdown className="bg-black text-white" backdrop="blur">
@@ -91,7 +93,37 @@ const SubTasks = () => {
               <div className=" w-[50%] font-semibold text-md">
                 {subtask.dateEnd ? (
                   <div className="flex items-center justify-between">
-                    <MdDateRange />
+                    <Dropdown
+                      className="bg-black text-white"
+                      backdrop="blur"
+                      showArrow
+                    >
+                      <DropdownTrigger>
+                        <div className="">
+                          <MdDateRange />
+                        </div>
+                      </DropdownTrigger>
+                      <DropdownMenu
+                        aria-label="Static Actions"
+                        closeOnSelect={false}
+                      >
+                        <DropdownItem>
+                          <form className="flex flex-col justify-center items-center gap-2">
+                            <input
+                              type="date"
+                              className="text-black rounded-lg px-4 h-8 bg-gray-200"
+                            />
+                            <Button
+                              size="sm"
+                              color="success"
+                              className="w-full"
+                            >
+                              Apply
+                            </Button>
+                          </form>
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
                     {new Date(subtask?.dateEnd).toLocaleDateString()}
                   </div>
                 ) : (
