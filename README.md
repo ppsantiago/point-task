@@ -27,6 +27,7 @@ npm run dev
 
 ## Actualizaciones
 
+- `Actualizacion de fecha sub tarea`: Se agrego funcionalidad para modificar la fecha de una sub tarea
 - `Mejora del store`: Se elimina task[] del store
 - `Vista de tarea`: Se creo vista individual de tarea
 - `Edicion de tarea`: Edicion desde vista de tarea: descripcion, status, delete
