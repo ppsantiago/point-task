@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 export const useTaskStore = create(
   persist(
     //
-    (set, get) => ({
+    (set) => ({
       // Tasks
       tasks: [],
       // Constantes
@@ -55,8 +55,6 @@ export const useTaskStore = create(
       },
       // ⭕ TODO: cambiar a addSubtask
       saveSubtask: (taskID, subtask) => {
-        const task = get().tasks.find((task) => task.id === taskID);
-        console.log(task);
         subtask.dateEnd = moment(subtask.dateEnd).add(1, "days");
         set((state) => ({
           tasks: state.tasks.map((t) =>
@@ -83,6 +81,24 @@ export const useTaskStore = create(
           }),
         }));
       },
+      changeDateSubtask: (taskID, subtaskID, date) => {
+        set((state) => ({
+          tasks: state.tasks.map((task) => {
+            if (task.id === taskID) {
+              return {
+                ...task,
+                subTasks: task.subTasks.map((subtask) =>
+                  subtask.id === subtaskID
+                    ? { ...subtask, dateEnd: date }
+                    : subtask
+                ),
+              };
+            } else {
+              return task;
+            }
+          }),
+        }));
+      },
       deleteSubtask: (taskID, subtaskID) => {
         set((state) => ({
           tasks: state.tasks.map((task) => {
@@ -100,9 +116,6 @@ export const useTaskStore = create(
         }));
       },
       addComment: (taskID, comment) => {
-        console.log("taskID", taskID);
-        console.log("comment", comment);
-
         const commentSave = {
           id: v4(),
           comment: comment,

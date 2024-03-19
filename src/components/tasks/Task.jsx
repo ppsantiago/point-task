@@ -2,6 +2,7 @@ import InfoTask from "./InfoTask";
 import SubTasks from "./SubTasks";
 import { Link } from "react-router-dom";
 import CommentsTask from "./CommentsTask";
+import PreviousComponent from "./PreviousComponent";
 
 const Task = () => {
   return (
@@ -20,7 +21,7 @@ const Task = () => {
       </section>
       <section className="flex w-11/12 pt-10 gap-9 max-h-[45vh]">
         <CommentsTask />
-        <InfoTask />
+        <PreviousComponent />
       </section>
     </div>
   );

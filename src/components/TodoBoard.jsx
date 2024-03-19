@@ -10,7 +10,7 @@ const TodoBoard = () => {
       <div className=" hidden md:block md:absolute md:pt-0 md:top-10 left-2">
         <div className="flex flex-col gap-5">
           <AddTaskModal usage="task" />
-          <AddTaskModal title="Add Task whit IA" />
+          {/* <AddTaskModal title="Add Task whit IA" /> */}
         </div>
       </div>
       <div

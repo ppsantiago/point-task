@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTaskStore } from "../../store/taskStore";
 import {
   // Textarea,
@@ -26,10 +26,6 @@ const InfoTask = () => {
   const taskDescription = () => {
     return task?.description;
   };
-
-  useEffect(() => {
-    console.log("task");
-  }, []);
 
   return (
     <div className="flex flex-col  w-[40%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between ">

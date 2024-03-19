@@ -1,3 +1,5 @@
+// import { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   ScrollShadow,
   Dropdown,
@@ -24,7 +26,12 @@ const SubTasks = () => {
   const changeStatusSubtask = useTaskStore(
     (state) => state.changeStatusSubtask
   );
-  // task.subTasks.map((subtask) => console.log(subtask));
+  const changeDateSubtask = useTaskStore((state) => state.changeDateSubtask);
+
+  const handlerSubmitDate = (e) => {
+    e.preventDefault();
+    changeDateSubtask(task.id, e.target[1].value, e.target[0].value);
+  };
 
   return (
     <div className="flex flex-col w-[60%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between ">
@@ -69,20 +76,20 @@ const SubTasks = () => {
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Static Actions">
-                  {statuses.map((s) =>
-                    subtask.status === s ? null : (
+                  {statuses.map((status) =>
+                    subtask.status === status ? null : (
                       <DropdownItem
                         onClick={() =>
                           changeStatusSubtask(
                             task.id,
                             subtask.id,
                             task?.subTasks,
-                            s
+                            status
                           )
                         }
-                        key={s}
+                        key={status}
                       >
-                        {s}
+                        {status}
                       </DropdownItem>
                     )
                   )}
@@ -108,12 +115,17 @@ const SubTasks = () => {
                         closeOnSelect={false}
                       >
                         <DropdownItem>
-                          <form className="flex flex-col justify-center items-center gap-2">
+                          <form
+                            onSubmit={handlerSubmitDate}
+                            className="flex flex-col justify-center items-center gap-2"
+                          >
                             <input
                               type="date"
                               className="text-black rounded-lg px-4 h-8 bg-gray-200"
                             />
+                            <input type="hidden" value={subtask.id} />
                             <Button
+                              type="submit"
                               size="sm"
                               color="success"
                               className="w-full"

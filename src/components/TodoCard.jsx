@@ -46,7 +46,7 @@ const TodoCard = (task) => {
         </Dropdown>
         <ButtonGroup>
           <Button size="sm" onClick={() => console.log("editin")}>
-            Edit
+            <Link to={`/task/${id}`}>Edit</Link>
           </Button>
           <Button size="sm" onClick={() => deleteTask(id)} color="danger">
             Delete

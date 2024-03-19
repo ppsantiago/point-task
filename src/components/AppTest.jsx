@@ -3,8 +3,6 @@ import { useTaskStore } from "../store/taskStore";
 const AppTest = () => {
   const tasks = useTaskStore((state) => state.tasks);
 
-  console.log(tasks);
-
   return (
     <div className="w-full  flex flex-col justify-center items-center gap-y-5">
       {tasks.map((task) => (

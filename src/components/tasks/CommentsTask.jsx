@@ -20,38 +20,55 @@ const CommentsTask = () => {
     e.preventDefault();
     addComment(task.id, newComment);
     setnewComment("");
-    console.log(commentBoxRef.current);
+    scrollToBottom();
   };
 
-  useEffect(() => {
-    const scrollToBottom = () => {
-      if (commentBoxRef.current) {
-        commentBoxRef.current.scrollTop = commentBoxRef.current.scrollHeight;
-      }
-    };
+  const scrollToBottom = () => {
+    if (commentBoxRef.current) {
+      commentBoxRef.current.scrollTop = commentBoxRef.current.scrollHeight;
+    }
+  };
 
-    // Desplazar al fondo al montar el componente
+  // Desplazar al fondo al montar el componente
+  scrollToBottom();
+
+  // Desplazar al fondo cuando se agrega un comentario
+  const onCommentAdded = () => {
     scrollToBottom();
+  };
 
-    // Desplazar al fondo cuando se agrega un comentario
-    const onCommentAdded = () => {
-      scrollToBottom();
-    };
-
-    // Suponiendo que el store notifica la adición de comentarios:
-    useTaskStore.subscribe(onCommentAdded);
-  }, []);
+  // Suponiendo que el store notifica la adición de comentarios:
+  useTaskStore.subscribe(onCommentAdded);
+  useEffect(() => {
+    scrollToBottom();
+  }, [setnewComment]);
 
   return (
     <div className="flex flex-col w-[60%] rounded-t-lg overflow-hidden min-h-[40vh] justify-between">
       <section className="bg-gray-700 w-full flex justify-between items-center px-4 py-2">
         <h3 className="text-2xl font-semibold ">Comments</h3>
       </section>
+      {/* 
+      
+            <section className="flex flex-col justify-center overflow-x-hidden items-center h-full">
+        {task.comments?.map((comment) => (
+          <div key={v4()} className="w-full">
+            <p className="font-semibold text-sm">
+              {new Date(comment["date"]).toLocaleDateString()}
+            </p>
+            <div className="min-h-16 w-full backdrop-blur-md bg-white/10 my-2 px-4 py-2 rounded-xl  shadow-xl">
+              <p className="text-pretty text-sm">{comment.comment}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+      
+      */}
       <ScrollShadow
         ref={commentBoxRef}
         hideScrollBar
         size="10"
-        className="flex flex-col  px-4 py-4 pb-20 h-full overflow-y-auto  max-h-[40vh] items-start "
+        className="flex flex-col justify-center overflow-x-hidden items-center h-[20vh]"
       >
         {task.comments?.map((comment) => (
           <div key={v4()} className="w-full">
@@ -64,7 +81,7 @@ const CommentsTask = () => {
           </div>
         ))}
       </ScrollShadow>
-      <div className=" flex h-[5vh] items-end w-full">
+      <div className=" flex h-[10vh] items-end w-full">
         <Textarea
           value={newComment}
           // variant="underlined"
